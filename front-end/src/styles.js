@@ -1,20 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Merriweather+Sans&display=swap');
-body {
-    background-color: #FEF5ED;
-    font-family: 'Bangers', cursive;
-  }
-  
-  .App {
+import styled,{createGlobalStyle} from 'styled-components'
+
+export const MainContainer = styled.div`
     text-align: center;
     max-width: 728px;
     margin: 0 auto;
-  }
+
   
-  .App header {
-    background-color: #D3E4CD;
+header {
     height: 10vh;
     min-height: 50px;
-    color: #000;
     position: fixed;
     width: 100%;
     max-width: 728px;
@@ -24,15 +18,14 @@ body {
     justify-content: space-between;
     z-index: 99;
     padding: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
   }
   
-  .App section {
+section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-    background-color: #ADC2A9;
   }
   
   main {
@@ -60,7 +53,6 @@ body {
     height: 10vh;
     position: fixed;
     bottom: 0;
-    background-color: rgb(24, 23, 23);
     width: 100%;
     max-width: 728px;
     display: flex;
@@ -69,16 +61,12 @@ body {
   
   form button {
     width: 20%;
-    background-color: rgb(56, 56, 143);
   }
-  
-  
+
   input {
     line-height: 1.5;
     width: 100%;
     font-size: 1.5rem;
-    background: #D3E4CD;
-    color: #000;
     outline: none;
     border: none;
     padding: 0 10px;
@@ -100,17 +88,13 @@ body {
     opacity: 0.5;
     cursor: not-allowed;
   }
-  
-  
+
   .sign-in {
     color: #282c34;
     background: white;
     max-width: 400px;
     margin: 0 auto;
   }
-  
-  
-  
   
   ul, li {
     text-align: left;
@@ -124,7 +108,6 @@ body {
     padding: 10px 20px;
     border-radius: 25px;
     position: relative;
-    color: white;
     text-align: center;
     font-family: 'Merriweather Sans', sans-serif;
   }
@@ -155,3 +138,55 @@ body {
     border-radius: 50%;
     margin: 2px 5px;
   }
+`
+
+export const GlobalStyles = createGlobalStyle`
+
+  body{
+    background-color: ${props => props.theme.body};
+  }
+  header{
+     background-color: ${props => props.theme.header};
+     color: ${props => props.theme.color};
+   }
+
+   section {
+     background-color:${props => props.theme.section};
+   }
+
+   form {
+     background-color: ${props => props.theme.form};
+   }
+
+   p {
+     color: ${props => props.theme.color};
+   }
+
+   input {
+     background: ${props => props.theme.input};
+     color: ${props => props.theme.text};
+  }
+
+`
+
+export const lightTheme = {
+    body:'#FFFFFF',
+    header: '#d6cdea',
+    color: '#000',
+    text:'#000',
+    section :'#bc986a',
+    form :'#cdf5f6',
+    p :'black',
+    input :'#eff9da'
+}
+
+export const darkTheme = {
+    body:'#121212',
+    header: '#000000',
+    color: '#fff',
+    text:'#fff',
+    section :'#181818',
+    form :'#282828',
+    p :'white',
+    input :'#404040'
+}
